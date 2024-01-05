@@ -16,9 +16,9 @@ steps:
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
   stages:
-- stage: Deploy
-  displayName: 'Deploy to Azure'
-  jobs:
+ - stage: Deploy
+   displayName: 'Deploy to Azure'
+   jobs:
   - job: Deploy
     displayName: 'Deploy Job'
     pool:
