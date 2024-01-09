@@ -3,19 +3,3 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-stages:
-- stage: Deploy
-  displayName: 'Deploy to Azure'
-  jobs:
-  - job: Deploy
-    displayName: 'Deploy Job'
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-    - download: current
-      artifact: 'drop'
-    - task: AzureWebApp@1
-      inputs:
-        azureSubscription: 'YourAzureServiceConnection'
-        appName: 'YourAzureWebAppName'
-        package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
